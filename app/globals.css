@@ -7,6 +7,17 @@
   body,
   :root {
     height: 100%;
+  
+  }
+
+  .scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--muted) var(--background);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "cv02";
+    font-variant-numeric: lining-nums tabular-nums;
   }
 
 
