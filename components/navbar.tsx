@@ -1,13 +1,13 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { MobileSidebar } from "@/components/mobile-sidebar";
+import { ModeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { UserButton } from "@clerk/nextjs";
-import { Menu, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 import { Poppins } from "next/font/google";
 import Link from "next/link";
-import { ModeToggle } from "@/components/theme-toggle";
-import { MobileSidebar } from "@/components/mobile-sidebar";
 
 const font = Poppins({
   weight: "600",

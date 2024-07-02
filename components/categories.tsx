@@ -9,7 +9,7 @@ interface CategoriesProps {
   data: Category[];
 }
 
-const categories = ({ data }: CategoriesProps) => {
+const Categories = ({ data }: CategoriesProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const categoryId = searchParams.get("categoryId");
@@ -56,4 +56,4 @@ const categories = ({ data }: CategoriesProps) => {
     </div>
   );
 };
-export default categories;
+export default Categories;
