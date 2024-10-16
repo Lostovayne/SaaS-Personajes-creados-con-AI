@@ -1,9 +1,12 @@
-"use client";
-import * as z from "zod";
-import { Category, Companion } from "@prisma/client";
+'use client';
+import * as z from 'zod';
+import { Category, Companion } from '@prisma/client';
 
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
+import { Separator } from '@/components/ui/separator';
+import { ImageUpload } from '@/components/image-upload';
 
 interface CompanionFormProps {
   initialData: Companion | null;
@@ -11,34 +14,29 @@ interface CompanionFormProps {
 }
 
 const formSchema = z.object({
-  name: z.string().min(1, { message: "Name is required" }),
-  description: z.string().min(1, { message: "Description is required" }),
-  instructions: z
-    .string()
-    .min(200, { message: "Instructions must have at least 200 characters" }),
+  name: z.string().min(1, { message: 'Name is required' }),
+  description: z.string().min(1, { message: 'Description is required' }),
+  instructions: z.string().min(200, { message: 'Instructions must have at least 200 characters' }),
 
   seed: z.string().min(200, {
-    message: "Seed must have at least 200 characters",
+    message: 'Seed must have at least 200 characters',
   }),
-  src: z.string().min(1, { message: "Src is required" }),
+  src: z.string().min(1, { message: 'Src is required' }),
   categoryId: z.string().min(1, {
-    message: "Category is required",
+    message: 'Category is required',
   }),
 });
 
-export const CompanionForm = ({
-  initialData,
-  categories,
-}: CompanionFormProps) => {
+export const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: initialData || {
-      name: "",
-      description: "",
-      instructions: "",
-      seed: "",
-      src: "",
-      categoryId: "",
+      name: '',
+      description: '',
+      instructions: '',
+      seed: '',
+      src: '',
+      categoryId: undefined,
     },
   });
 
@@ -46,7 +44,36 @@ export const CompanionForm = ({
 
   const isLoading = form.formState.isSubmitting;
 
-  return <div>CompanionForm</div>;
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    console.log(values);
+  };
+
+  return (
+    <div className='h-full p-4 space-y-2 max-w-3xl mx-auto'>
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8 pb-10'>
+          <div className='space-y-2 w-full '>
+            <div className=''>
+              <h3 className='text-lg font-medium'>General Information</h3>
+              <p className='text-sm text-muted-foreground'>General information about your companion</p>
+            </div>
+            <Separator className='bg-primary/10' />
+          </div>
+          <FormField
+            name='src'
+            render={({ field }) => (
+              <FormItem className='flex flex-col items-center justify-center space-y-4 '>
+                <FormControl>
+                  <ImageUpload disabled={isLoading} onChange={field.onChange} value={field.value} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        </form>
+      </Form>
+    </div>
+  );
 };
 
 // !  Minuto 16 ahi quedé
