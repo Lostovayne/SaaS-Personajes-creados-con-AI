@@ -5,9 +5,23 @@ import * as z from 'zod';
 
 import { ImageUpload } from '@/components/image-upload';
 import { Button } from '@/components/ui/button';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
+import {
+  Form,
+  FormControl,
+  FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -86,7 +100,9 @@ export const CompanionForm = ({ initialData, categories }: CompanionFormProps) =
           <div className='space-y-2 w-full '>
             <div className=''>
               <h3 className='text-lg font-medium'>General Information</h3>
-              <p className='text-sm text-muted-foreground'>General information about your companion</p>
+              <p className='text-sm text-muted-foreground'>
+                General information about your companion
+              </p>
             </div>
             <Separator className='bg-primary/10' />
           </div>
@@ -113,7 +129,8 @@ export const CompanionForm = ({ initialData, categories }: CompanionFormProps) =
                     <Input disabled={isLoading} placeholder='Elon Musk' {...field} />
                   </FormControl>
                   <FormDescription>
-                    This is how your companion will appear in the app. It&apos;s a good idea to keep it short and sweet.
+                    This is how your companion will appear in the app. It&apos;s a good idea to keep
+                    it short and sweet.
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
@@ -129,7 +146,9 @@ export const CompanionForm = ({ initialData, categories }: CompanionFormProps) =
                   <FormControl>
                     <Input disabled={isLoading} placeholder='Ceo & Founder of SpaceX' {...field} />
                   </FormControl>
-                  <FormDescription>Short description of your companion. This will be shown in the app.</FormDescription>
+                  <FormDescription>
+                    Short description of your companion. This will be shown in the app.
+                  </FormDescription>
                   <FormMessage />
                 </FormItem>
               )}
@@ -169,7 +188,9 @@ export const CompanionForm = ({ initialData, categories }: CompanionFormProps) =
           <div className='space-y-2 w-full'>
             <div>
               <h3 className='text-lg font-medium'>Configuracion</h3>
-              <p className='text-sm text-muted-foreground'>Details instructions for your AI Behaviour</p>
+              <p className='text-sm text-muted-foreground'>
+                Details instructions for your AI Behaviour
+              </p>
             </div>
             <Separator className='bg-primary/10' />
           </div>
@@ -190,7 +211,8 @@ export const CompanionForm = ({ initialData, categories }: CompanionFormProps) =
                   />
                 </FormControl>
                 <FormDescription>
-                  Describe the instructions for your AI. This will be used to generate the AI&apos;s responses.
+                  Describe the instructions for your AI. This will be used to generate the AI&apos;s
+                  responses.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
@@ -213,7 +235,8 @@ export const CompanionForm = ({ initialData, categories }: CompanionFormProps) =
                   />
                 </FormControl>
                 <FormDescription>
-                  Describe the instructions for your AI. This will be used to generate the AI&apos;s responses.
+                  Describe the instructions for your AI. This will be used to generate the AI&apos;s
+                  responses.
                 </FormDescription>
                 <FormMessage />
               </FormItem>
