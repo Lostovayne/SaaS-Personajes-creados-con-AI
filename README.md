@@ -2,6 +2,10 @@
 
 Este es un proyecto de [Next.js](https://nextjs.org/) creado con [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). El objetivo de este proyecto es proporcionar una plataforma interactiva y dinámica utilizando tecnologías modernas como Next.js, Prisma, TailwindCSS, y Clerk para la autenticación.
 
+## Demo
+
+![AI Companion](./public/image.png)
+
 ## Tecnologías Utilizadas
 
 - **Next.js**: Framework de React para aplicaciones web.
@@ -29,17 +33,18 @@ cd ai-companion
 2. Instala las dependencias:
 
 ```bash
-npm install
+bun install
 ```
-
 
 3. Configura las variables de entorno:
 
 Crea un archivo `.env` en la raíz del proyecto y añade las siguientes
 variables:
+
 - DATABASE_URL=mysql://companion:password@localhost:3308/companion
 - NEXT_PUBLIC_CLERK_FRONTEND_API=<tu_clerk_frontend_api>
 - CLERK_API_KEY=<tu_clerk_api_key>
+- NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME=""
 
 4. Levanta la base de datos con Docker (opcional):
 
@@ -47,16 +52,16 @@ variables:
 docker-compose up -d
 ```
 
-5. Ejecuta las migraciones de ``Prisma``:
+5. Ejecuta las migraciones de `Prisma`:
 
 ```bash
-npx prisma migrate dev
+bunx prisma migrate dev
 ```
 
 6. Si deseas poblar la base de datos con datos iniciales, ejecuta el script de seed:
 
 ```bash
-npm run seed
+bun run seed
 ```
 
 ## Ejecución del Proyecto
@@ -64,7 +69,7 @@ npm run seed
 7. Para levantar el servidor de desarrollo, ejecuta:
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 Abre [http://localhost:3000](http://localhost:3000) en tu navegador para ver la aplicación.

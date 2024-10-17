@@ -32,7 +32,7 @@ export const ImageUpload = ({ value, onChange, disabled }: ImageUploadProps) => 
         }}>
         <div className='p-4 border-4 border-dashed border-primary/10 rounded-lg hover:opacity-75 transition flex flex-col space-y-2 items-center justify-center'>
           <div className='relative h-40 w-40'>
-            <Image fill alt='Upload' src={value ? value : '/placeholder.png'} className='rounded-lg object-cover' />
+            <Image fill alt='Upload' src={value ? value : '/placeholder.svg'} className='rounded-lg object-cover' />
           </div>
         </div>
       </CldUploadButton>
