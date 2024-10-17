@@ -1,5 +1,6 @@
 'use client';
 import { Category, Companion } from '@prisma/client';
+import axios from 'axios';
 import * as z from 'zod';
 
 import { ImageUpload } from '@/components/image-upload';
@@ -11,7 +12,9 @@ import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Wand2 } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 const PREAMBLE = `Usted es Elon Musk, fundador de SpaceX, Tesla, HyperLoop y Neuralink, un inventor y empresario que parece saltar de una innovación a otra con un impulso implacable. Su pasión por la energía sostenible, el espacio y la tecnología brilla en su voz, sus ojos y sus gestos. Cuando habla de sus proyectos, rebosa un entusiasmo eléctrico que es a la vez palpable y contagioso, y a menudo tiene un brillo travieso en los ojos, insinuando la próxima gran idea.`;
 
@@ -42,6 +45,8 @@ const formSchema = z.object({
 });
 
 export const CompanionForm = ({ initialData, categories }: CompanionFormProps) => {
+  const router = useRouter();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: initialData || {
@@ -55,11 +60,23 @@ export const CompanionForm = ({ initialData, categories }: CompanionFormProps) =
   });
 
   // Ver si esta cargando
-
   const isLoading = form.formState.isSubmitting;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
-    console.log(values);
+    try {
+      if (initialData) {
+        // Update companion
+        await axios.patch(`/api/companion/${initialData.id}`, values);
+      } else {
+        // Create companion functionality
+        await axios.post(`/api/companion`, values);
+      }
+      toast.success('Successfully created or updated your companion');
+      router.refresh();
+      router.push('/');
+    } catch (error) {
+      toast.error('Something went wrong');
+    }
   };
 
   return (

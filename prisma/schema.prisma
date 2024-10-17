@@ -38,5 +38,3 @@ model Companion {
   @@index([categoryId])
   @@fulltext([name])
 }
-
-// mysql_native_password
