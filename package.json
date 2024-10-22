@@ -9,7 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "seed": "node ./scripts/seed.ts",
-    "prisma": "prisma generate && prisma migrate deploy"
+    "prisma": "prisma generate && prisma db push"
   },
   "dependencies": {
     "@clerk/nextjs": "^5.7.3",

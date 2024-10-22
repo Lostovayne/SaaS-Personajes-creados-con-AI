@@ -29,6 +29,7 @@ export default async function Home({ searchParams }: HomePageProps) {
       },
     },
   });
+
   const categories = await prismadb.category.findMany();
 
   return (
