@@ -34,7 +34,7 @@ model Companion {
   updatedAt  DateTime  @updatedAt
   category   Category  @relation(fields: [categoryId], references: [id])
   categoryId String
-  Message    Message[]
+  messages    Message[]
 
   @@index([categoryId])
   @@fulltext([name])
@@ -51,11 +51,9 @@ model Message {
   content   String   @db.Text
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-
-  companionId String
   userId      String
-
   companion Companion @relation(fields: [companionId], references: [id], onDelete: Cascade)
+  companionId String
 
   @@index([companionId])
 }
