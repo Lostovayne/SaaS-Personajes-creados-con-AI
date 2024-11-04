@@ -34,7 +34,7 @@ model Companion {
   updatedAt  DateTime  @updatedAt
   category   Category  @relation(fields: [categoryId], references: [id])
   categoryId String
-  messages    Message[]
+  Message    Message[]
 
   @@index([categoryId])
   @@fulltext([name])
@@ -46,14 +46,14 @@ enum Role {
 }
 
 model Message {
-  id        String   @id @default(uuid())
-  role      Role
-  content   String   @db.Text
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          String    @id @default(uuid())
+  role        Role
+  content     String    @db.Text
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
   userId      String
-  companion Companion @relation(fields: [companionId], references: [id], onDelete: Cascade)
   companionId String
+  Companion   Companion @relation(fields: [companionId], references: [id])
 
   @@index([companionId])
 }

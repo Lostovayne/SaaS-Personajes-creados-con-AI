@@ -24,7 +24,7 @@ const ChatIdPage: FC<ChatIdPageProps> = async ({ params }: ChatIdPageProps): Pro
 			id: params.chatId,
 		},
 		include: {
-			messages: {
+			Message: {
 				orderBy: {
 					createdAt: 'asc',
 				},
@@ -34,7 +34,7 @@ const ChatIdPage: FC<ChatIdPageProps> = async ({ params }: ChatIdPageProps): Pro
 			},
 			_count: {
 				select: {
-					messages: true,
+					Message: true!,
 				},
 			},
 		},
