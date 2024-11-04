@@ -5,7 +5,7 @@
 	"private": true,
 	"scripts": {
 		"dev": " bunx prisma && bun run seed && next dev",
-		"build": " bunx prisma && bun run seed && next build",
+		"build": " bun run prisma && bun run seed && next build",
 		"start": "next start",
 		"lint": "next lint",
 		"seed": "node ./scripts/seed.ts",
