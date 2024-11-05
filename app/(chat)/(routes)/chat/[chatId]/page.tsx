@@ -3,6 +3,7 @@ import { RedirectToSignIn } from '@clerk/nextjs';
 import { auth } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
 import { FC, ReactElement } from 'react';
+import ChatClient from './components/client';
 
 interface ChatIdPageProps {
 	params: {
@@ -44,7 +45,7 @@ const ChatIdPage: FC<ChatIdPageProps> = async ({ params }: ChatIdPageProps): Pro
 		return redirect('/');
 	}
 
-	return <div>content</div>;
+	return <ChatClient companion={companion} />;
 };
 
 export default ChatIdPage;
