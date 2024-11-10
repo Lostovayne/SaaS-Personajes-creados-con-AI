@@ -8,7 +8,10 @@ interface BotAvatarProps {
 const BotAvatar: FC<BotAvatarProps> = ({ src }): ReactElement => {
 	return (
 		<Avatar>
-			<AvatarImage src={src} />
+			<AvatarImage
+				src={src}
+				className='object-cover'
+			/>
 		</Avatar>
 	);
 };
