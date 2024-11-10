@@ -4,7 +4,7 @@
 	"license": "MIT",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
+		"dev": " bun run prisma && bun run seed && next dev",
 		"build": " bun run prisma && bun run seed && next build",
 		"start": "next start",
 		"lint": "next lint",
