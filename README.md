@@ -121,6 +121,8 @@ Consulta nuestra [documentación de despliegue de Next.js](https://nextjs.org/do
 
 ## Licencia
 
+## MARIA JOSE ESTUVO AQUIIII!!!!
+
 Este proyecto está bajo la licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
 
 ---
